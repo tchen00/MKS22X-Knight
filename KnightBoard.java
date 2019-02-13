@@ -13,8 +13,34 @@ public class KnightBoard{
   }
 
   public String toString(){
-    return "";
+    String output = "";
+    for (int r=0;r<board.length;r++){
+      for (int c=0;c<board[r].length;c++){
+	      if (board.length*board[r].length<10){
+		     if (board[r][c]==0){
+			     output+="_";
+		     }
+		     else{
+			     output += " " + board[r][c]+ " ";
+		     }
+	     }
+	     else{
+		     if (board[r][c]<10){
+			    if (board[r][c]==0){
+				    output += "_";
+			     }
+			     else{
+				     output += " " + board[r][c] + " ";
+			     }
+		     }
+		     else{
+			     output += board[r][c] + " ";
+		     }
+	     }
+     } output+= "\n";
+    } return output;
   }
+
 
   public boolean solve(int startingRow,int startingCol){
     return true;
@@ -26,5 +52,10 @@ public class KnightBoard{
 
   private boolean solveH(int row, int col, int level){
     return true;
+  }
+
+  public static void main(String[] args){
+    KnightBoard a = new KnightBoard(10,10);
+    System.out.println(a.toString());
   }
 }
