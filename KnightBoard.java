@@ -2,8 +2,8 @@ public class KnightBoard{
   private int row;
   private int col;
   private int[][] board;
-  /*
-    @throws IllegalArgumentException when either parameter is <= 0
+  /**
+    *@throws IllegalArgumentException when either parameter is <= 0
   */
   public KnightBoard(int startingRows, int startingCols){
     if (startingRows <= 0 || startingCols <= 0){
@@ -11,6 +11,12 @@ public class KnightBoard{
     }
     board = new int[startingRows][startingCols];
   }
+
+  /**
+    toString: you get a blank board if you never called solve or when there is no solution
+              blank boards display 0's as underscores
+    *@return the properly formatted string
+  */
 
   public String toString(){
     String output = "";
@@ -41,11 +47,22 @@ public class KnightBoard{
     } return output;
   }
 
-
+  /**
+  Modifies the board by labeling the moves from 1 (at startingRow,startingCol) up to the area of the board in proper knight move steps.
+  @throws IllegalStateException when the board contains non-zero values.
+  @throws IllegalArgumentException when either parameter is negative or out of bounds.
+  @return true when the board is solvable from the specified starting position
+  */
   public boolean solve(int startingRow,int startingCol){
-    return true;
+    return false;
+
   }
 
+  /**
+  @throws IllegalStateException when the board contains non-zero values.
+  @throws IllegalArgumentException when either parameter is negative or out of bounds.
+  @return the number of solutions from the starting position specified
+  */
   public int countSolutions(int startingRow, int startingCol){
     return 1;
   }
@@ -55,7 +72,7 @@ public class KnightBoard{
   }
 
   public static void main(String[] args){
-    KnightBoard a = new KnightBoard(10,10);
+    KnightBoard a = new KnightBoard(30,10);
     System.out.println(a.toString());
   }
 }
