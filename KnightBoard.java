@@ -17,6 +17,9 @@ public class KnightBoard{
               blank boards display 0's as underscores
     *@return the properly formatted string
   */
+  public String toDebug(){
+    return "";
+  }
 
   public String toString(){
     String output = "";
