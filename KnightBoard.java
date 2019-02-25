@@ -23,30 +23,15 @@ public class KnightBoard{
 
   public String toString(){
     String output = "";
-    for (int r=0;r<board.length;r++){
-      for (int c=0;c<board[r].length;c++){
-	      if (board.length*board[r].length<10){
-		     if (board[r][c]==0){
-			     output+="_";
-		     }
-		     else{
-			     output += " " + board[r][c]+ " ";
-		     }
-	     }
-	     else{
-		     if (board[r][c]<10){
-			    if (board[r][c]==0){
-				    output += "_";
-			     }
-			     else{
-				     output += " " + board[r][c] + " ";
-			     }
-		     }
-		     else{
-			     output += board[r][c] + " ";
-		     }
-	     }
-     } output+= "\n";
+    for (int row = 0; row < board.length; row++){
+      for (int col = 0; col < board[row].length; col++){
+        if (rows * cols >= 10 && board[row][col] < 10) output += " ";
+        if (board[row][col] == 0){
+          output += "_";
+        } else{
+          output += board[row][col];
+        } output += " ";
+      } output += "\n";
     } return output;
   }
 
