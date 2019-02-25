@@ -23,7 +23,7 @@ public class KnightBoard{
 
   //clear method for later use
   private void clear() {
-    board = new int[rows][cols];
+    board = new int[row][col];
   }
 
   //toString method
@@ -51,10 +51,11 @@ public class KnightBoard{
   public boolean solve(int startingRow,int startingCol){
     clear();
     solveHelper(startingRow, startingCol, 1);
+    return true;
   }
 
   public boolean solveHelper(int startRow, int startCol, int numKnight){
-    
+    return false;
   }
   /**
   @throws IllegalStateException when the board contains non-zero values.
@@ -65,12 +66,13 @@ public class KnightBoard{
     return 1;
   }
 
-  private boolean solveH(int row, int col, int level){
+  private boolean solveH(int row, int col, int numKnight){
     return true;
   }
 
   public static void main(String[] args){
-    KnightBoard a = new KnightBoard(5,5);
+    KnightBoard a = new KnightBoard(100,10);
     System.out.println(a);
+
   }
 }
