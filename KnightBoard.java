@@ -49,10 +49,13 @@ public class KnightBoard{
   @return true when the board is solvable from the specified starting position
   */
   public boolean solve(int startingRow,int startingCol){
-    return false;
-
+    clear();
+    solveHelper(startingRow, startingCol, 1);
   }
 
+  public boolean solveHelper(int startRow, int startCol, int numKnight){
+    
+  }
   /**
   @throws IllegalStateException when the board contains non-zero values.
   @throws IllegalArgumentException when either parameter is negative or out of bounds.
