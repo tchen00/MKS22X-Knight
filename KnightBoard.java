@@ -21,10 +21,17 @@ public class KnightBoard{
     return "";
   }
 
+  //clear method for later use
+  private void clear() {
+    board = new int[rows][cols];
+  }
+
+  //toString method
   public String toString(){
     String output = "";
     for (int row = 0; row < board.length; row++){
       for (int col = 0; col < board[row].length; col++){
+        // adds extra space for double digits
         if (this.row * this.col >= 10 && board[row][col] < 10) output += " ";
         if (board[row][col] == 0){
           output += "_";
