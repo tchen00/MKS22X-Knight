@@ -25,7 +25,7 @@ public class KnightBoard{
     String output = "";
     for (int row = 0; row < board.length; row++){
       for (int col = 0; col < board[row].length; col++){
-        if (rows * cols >= 10 && board[row][col] < 10) output += " ";
+        if (this.row * this.col >= 10 && board[row][col] < 10) output += " ";
         if (board[row][col] == 0){
           output += "_";
         } else{
@@ -60,7 +60,7 @@ public class KnightBoard{
   }
 
   public static void main(String[] args){
-    KnightBoard a = new KnightBoard(30,10);
-    System.out.println(a.toString());
+    KnightBoard a = new KnightBoard(5,5);
+    System.out.println(a);
   }
 }
