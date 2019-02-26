@@ -85,8 +85,7 @@ public class KnightBoard{
         }
       }
     }
-
-    return solveH(0,0,1);
+    return solveHelper(0,0,1);
   }
 
   public boolean solveHelper(int startRow, int startCol, int numKnight){
