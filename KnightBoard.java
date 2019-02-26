@@ -1,6 +1,6 @@
 public class KnightBoard{
-  private int row;
-  private int col;
+  private int[] rowC = {-2, -1, 1, 2, 2, 1, -1, -2};
+  private int[] colC= {1, 2, 2, 1, -1, -2, -2, -1};
   private int[][] board;
   /**
     *@throws IllegalArgumentException when either parameter is <= 0
@@ -23,16 +23,18 @@ public class KnightBoard{
 
   //clear method for later use
   private void clear() {
-    board = new int[row][col];
+    board = new int[board.length][board[0].length];
   }
 
   //toString method
   public String toString(){
     String output = "";
+    int nRow = board.length;
+    int nCol = board[0].length;
     for (int row = 0; row < board.length; row++){
       for (int col = 0; col < board[row].length; col++){
         // adds extra space for double digits
-        if (this.row * this.col >= 10 && board[row][col] < 10) output += " ";
+        if (nRow * nCol >= 10 && board[row][col] < 10) output += " ";
         if (board[row][col] == 0){
           output += "_";
         } else{
@@ -88,8 +90,19 @@ public class KnightBoard{
     return solveHelper(0,0,1);
   }
 
-  public boolean solveHelper(int startRow, int startCol, int numKnight){
-    return false;
+  public boolean solveHelper(int startRow, int startCol, int level){
+    if (level > board.length * board[0].length) {
+      // see if all squares are filled
+      return true;
+    } else {
+      if (addKnight(startRow, startCol, level)) {
+        for (int i = 0; i < rowC.length; i++) {
+          if (solveHelper(startRow + rowC[i], startCol + colC[i], level + 1)) {
+            return true;
+          }
+      } removeKnight(startRow, startCol);
+    }  return false;
+    }
   }
   /**
   @throws IllegalStateException when the board contains non-zero values.
@@ -105,8 +118,7 @@ public class KnightBoard{
   }
 
   public static void main(String[] args){
-    KnightBoard a = new KnightBoard(100,10);
+    KnightBoard a = new KnightBoard(10,10);
     System.out.println(a);
-
   }
 }
