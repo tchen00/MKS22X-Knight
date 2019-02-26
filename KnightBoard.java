@@ -42,6 +42,14 @@ public class KnightBoard{
     } return output;
   }
 
+  public boolean addKnight(int row, int col, int level) {
+    if (row >= 0 && row < board.length && col >= 0 && col < board[0].length) {
+      if (board[row][col] == 0) {
+        board[row][col] = level;
+        return true;
+      }
+    } return false;
+  }
   /**
   Modifies the board by labeling the moves from 1 (at startingRow,startingCol) up to the area of the board in proper knight move steps.
   @throws IllegalStateException when the board contains non-zero values.
