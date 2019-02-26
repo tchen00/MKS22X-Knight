@@ -110,11 +110,33 @@ public class KnightBoard{
   @return the number of solutions from the starting position specified
   */
   public int countSolutions(int startingRow, int startingCol){
-    return 1;
+    if (startingRow < 0 || startingRow >= board.length || startingCol < 0 || startingCol >= board[startingRow].length) {
+      throw new IllegalArgumentException();
+    }
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[i].length; j++) {
+        if (board[i][j] != 0) {
+          throw new IllegalStateException();
+        }
+      }
+    }
+    return countHelper(0,0,1);
   }
 
-  private boolean solveH(int row, int col, int numKnight){
-    return true;
+  private int countHelper(int row, int col, int level){
+    int output = 0;
+    if (addKnight(row, col, level)){
+      if (level == board.length * board[0].length) {
+        removeKnight(row, col);
+        return 1;
+      } else {
+        for (int i = 0; i < rowC.length; i++) {
+          output += countHelper(row + rowC[i], col + colC[i], level + 1);
+        }
+      }
+      removeKnight(row, col);
+    }
+    return output;
   }
 
   public static void main(String[] args){
