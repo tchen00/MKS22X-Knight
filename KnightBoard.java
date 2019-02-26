@@ -59,7 +59,7 @@ public class KnightBoard{
     if (row >= 0 && row < board.length && col >= 0 && col < board[0].length) {
       // check to see if not empty
       if (board[row][col] != 0) {
-        // remove knight 
+        // remove knight
         board[row][col] = 0;
         return true;
       }
@@ -73,9 +73,20 @@ public class KnightBoard{
   @return true when the board is solvable from the specified starting position
   */
   public boolean solve(int startingRow,int startingCol){
-    clear();
-    solveHelper(startingRow, startingCol, 1);
-    return true;
+    if (startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[startingRow].length) {
+      // parameter cannot be negative or out of bounds
+      throw new IllegalArgumentException();
+    }
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[i].length; j++) {
+        if (board[i][j] != 0) {
+          // the board cannot contain non-zero values when start
+          throw new IllegalStateException();
+        }
+      }
+    }
+
+    return solveH(0,0,1);
   }
 
   public boolean solveHelper(int startRow, int startCol, int numKnight){
