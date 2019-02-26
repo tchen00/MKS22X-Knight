@@ -43,12 +43,28 @@ public class KnightBoard{
   }
 
   public boolean addKnight(int row, int col, int level) {
+    //row and col are less than the length of the board but greater than or equal to 0 move on ...
     if (row >= 0 && row < board.length && col >= 0 && col < board[0].length) {
+      // check to see if empty
       if (board[row][col] == 0) {
+        // add knight
         board[row][col] = level;
         return true;
       }
     } return false;
+  }
+
+  public boolean removeKnight(int row, int col) {
+    //row and col are less than the length of the board but greater than or equal to 0 move on ...
+    if (row >= 0 && row < board.length && col >= 0 && col < board[0].length) {
+      // check to see if not empty
+      if (board[row][col] != 0) {
+        // remove knight 
+        board[row][col] = 0;
+        return true;
+      }
+    }
+    return false;
   }
   /**
   Modifies the board by labeling the moves from 1 (at startingRow,startingCol) up to the area of the board in proper knight move steps.
