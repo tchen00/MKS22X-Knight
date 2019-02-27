@@ -75,6 +75,7 @@ public class KnightBoard{
   @throws IllegalArgumentException when either parameter is negative or out of bounds.
   @return true when the board is solvable from the specified starting position
   */
+/*
   public boolean solve(int startingRow,int startingCol){
     if (startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[startingRow].length) {
       // parameter cannot be negative or out of bounds
@@ -105,6 +106,7 @@ public class KnightBoard{
     }  return false;
     }
   }
+*/
   /**
   @throws IllegalStateException when the board contains non-zero values.
   @throws IllegalArgumentException when either parameter is negative or out of bounds.
