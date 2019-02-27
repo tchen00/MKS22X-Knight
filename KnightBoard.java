@@ -2,7 +2,7 @@ import java.util.*;
 public class KnightBoard{
   private int[] rowC = {-2, -1, 1, 2, 2, 1, -1, -2};
   private int[] colC= {1, 2, 2, 1, -1, -2, -2, -1};
-  private int[][] board;
+  private Square[][] board;
   /**
     *@throws IllegalArgumentException when either parameter is <= 0
   */
@@ -69,12 +69,22 @@ public class KnightBoard{
     }
     return false;
   }
+  //checking if board is complete
+  private boolean checkFinished() {
+    for (int r = 0; r < board.length; r++) {
+      for (int c = 0; c < board[r].length; c++) {
+        if (board[r][c].number == 0) {return false;}
+      }
+    }
+    return true;
+  }
   /**
   Modifies the board by labeling the moves from 1 (at startingRow,startingCol) up to the area of the board in proper knight move steps.
   @throws IllegalStateException when the board contains non-zero values.
   @throws IllegalArgumentException when either parameter is negative or out of bounds.
   @return true when the board is solvable from the specified starting position
   */
+
 /*
   public boolean solve(int startingRow,int startingCol){
     if (startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[startingRow].length) {
