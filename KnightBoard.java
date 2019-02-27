@@ -2,7 +2,9 @@ import java.util.*;
 public class KnightBoard{
   private int[] rowC = {-2, -1, 1, 2, 2, 1, -1, -2};
   private int[] colC= {1, 2, 2, 1, -1, -2, -2, -1};
-  private Square[][] board;
+  private int[] moves = {2, 1, 2, -1, -2, 1, -2, -1, 1, 2, -1, 2, 1, -2, -1, -2};
+
+  private int[][] board;
   /**
     *@throws IllegalArgumentException when either parameter is <= 0
   */
@@ -69,6 +71,7 @@ public class KnightBoard{
     }
     return false;
   }
+  /*
   //checking if board is complete
   private boolean checkFinished() {
     for (int r = 0; r < board.length; r++) {
@@ -78,14 +81,28 @@ public class KnightBoard{
     }
     return true;
   }
+  */
   /**
   Modifies the board by labeling the moves from 1 (at startingRow,startingCol) up to the area of the board in proper knight move steps.
   @throws IllegalStateException when the board contains non-zero values.
   @throws IllegalArgumentException when either parameter is negative or out of bounds.
   @return true when the board is solvable from the specified starting position
   */
-
-/*
+  /*
+  private static ArrayList<Square> sort(ArrayList<Square> arr) {
+    ArrayList<Square> output = new ArrayList<Square>();
+    for (int s = 0; s < arr.size(); s++) {
+      Square temp = arr.get(0);
+      for (int i = 0; i < arr.size(); i++) {
+        if (arr.get(i).moves < temp.moves) {
+          temp = arr.get(i);
+        }
+      }
+      output.add(temp); arr.remove(temp);
+    }
+    return output;
+  }
+  */
   public boolean solve(int startingRow,int startingCol){
     if (startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[startingRow].length) {
       // parameter cannot be negative or out of bounds
@@ -116,7 +133,7 @@ public class KnightBoard{
     }  return false;
     }
   }
-*/
+
   /**
   @throws IllegalStateException when the board contains non-zero values.
   @throws IllegalArgumentException when either parameter is negative or out of bounds.
@@ -153,7 +170,6 @@ public class KnightBoard{
   }
 
   public static void runTest(int i){
-
     KnightBoard b;
     int[]m =   {4,5,5,5,5};
     int[]n =   {4,5,4,5,5};
