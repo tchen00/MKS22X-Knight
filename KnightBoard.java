@@ -3,7 +3,6 @@ public class KnightBoard{
   private int[] rowC = {-2, -1, 1, 2, 2, 1, -1, -2};
   private int[] colC= {1, 2, 2, 1, -1, -2, -2, -1};
   private int[] moves = {2, 1, 2, -1, -2, 1, -2, -1, 1, 2, -1, 2, 1, -2, -1, -2};
-
   private int[][] board;
   /**
     *@throws IllegalArgumentException when either parameter is <= 0
@@ -89,6 +88,7 @@ public class KnightBoard{
   @return true when the board is solvable from the specified starting position
   */
   /*
+  // TRIED TO DO A SORT FOR OPTIMIZATION BUT IT DID NOT WORK and really confused right now
   private static ArrayList<Square> sort(ArrayList<Square> arr) {
     ArrayList<Square> output = new ArrayList<Square>();
     for (int s = 0; s < arr.size(); s++) {
@@ -103,6 +103,7 @@ public class KnightBoard{
     return output;
   }
   */
+  //slow regular way of doing solve
   public boolean solve(int startingRow,int startingCol){
     if (startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[startingRow].length) {
       // parameter cannot be negative or out of bounds
@@ -118,7 +119,7 @@ public class KnightBoard{
     }
     return solveHelper(0,0,1);
   }
-
+  // helper function for slow solve
   public boolean solveHelper(int startRow, int startCol, int level){
     if (level > board.length * board[0].length) {
       // see if all squares are filled
