@@ -151,7 +151,7 @@ public class KnightBoard{
         }
       }
     }
-    return countHelper(0,0,1);
+    return countHelper(startingRow,startingCol,1);
   }
 
   private int countHelper(int row, int col, int level){
@@ -197,7 +197,7 @@ public class KnightBoard{
   }
   public static void main(String[] args) {
     String time;
-
+/*
     System.out.println("SOLVE: (from (0, 0))\n");
     for (int r = 1; r < 100; r++) {
       KnightBoard b = new KnightBoard(r, r);
@@ -215,6 +215,7 @@ public class KnightBoard{
         break;
       }
     }
+    */
     System.out.println("\nCOUNT SOLUTIONS: (from (0, 0))\n");
     for (int r = 1; r < 6; r++) {
       for (int c = r; c < 6; c++) {
